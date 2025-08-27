@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE = import.meta.env.VITE_API_BASE || "http://localhost:8080/api";
+const API_BASE = import.meta.env.VITE_API_BASE || "https://foodwaste-backend.onrender.com/api";
 axios.defaults.withCredentials = true;
 const api = axios.create({
   baseURL: API_BASE,
