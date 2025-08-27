@@ -18,7 +18,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/users")
-@CrossOrigin(origins = "http://localhost:5173") // Restrict to your frontend only
+@CrossOrigin(origins = "https://foodwastesharing.netlify.app") // Restrict to your frontend only
 public class UserController {
 
     @Autowired

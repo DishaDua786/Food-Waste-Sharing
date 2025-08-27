@@ -19,7 +19,9 @@ public class FoodwastesharingApplication {
         public void addCorsMappings(CorsRegistry registry) {
             registry.addMapping("/**")
                     .allowedOrigins(
-                            "http://localhost:5173"
+                            "https://foodwastesharing.netlify.app", // Production
+                            "http://localhost:3000",                 // Local development
+                            "http://localhost:5173"                  // Vite dev server
                     )
                     .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                     .allowedHeaders("*")

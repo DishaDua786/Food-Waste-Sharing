@@ -9,7 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/donations")
-@CrossOrigin(origins = "http://localhost:5173", allowCredentials = "true")
+@CrossOrigin(origins = "https://foodwastesharing.netlify.app", allowCredentials = "true")
 public class DonationController {
 
     @Autowired
