@@ -1,11 +1,10 @@
-# Use compatible Maven image
-FROM maven:3.8.7-eclipse-temurin-17 AS build
+FROM maven:3.8-openjdk-17 AS build
 WORKDIR /app
 COPY . .
-RUN mvn clean package -DskipTests
+RUN mvn clean package -DskipTests  # Use 'mvn' instead of './mvnw'
 
-FROM eclipse-temurin:17-jre
+FROM openjdk:17-jre-slim
 WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "app.jar"
+ENTRYPOINT ["java", "-jar", "app.jar"]
