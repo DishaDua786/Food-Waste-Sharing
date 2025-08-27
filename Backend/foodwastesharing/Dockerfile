@@ -1,10 +1,10 @@
-FROM maven:3.8-openjdk-17 AS build
-WORKDIR /app
-COPY . .
-RUN mvn clean package -DskipTests  # Use 'mvn' instead of './mvnw'
+ FROM maven:3.8.7-eclipse-temurin-17 AS build
+ WORKDIR /app
+ COPY . .
+ RUN mvn clean package -DskipTests
 
-FROM openjdk:17-jre-slim
-WORKDIR /app
-COPY --from=build /app/target/*.jar app.jar
-EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ FROM eclipse-temurin:17-jre
+ WORKDIR /app
+ COPY --from=build /app/target/*.jar app.jar
+ EXPOSE 8080
+ ENTRYPOINT ["java", "-jar", "app.jar"]
